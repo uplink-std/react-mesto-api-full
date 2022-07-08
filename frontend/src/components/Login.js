@@ -29,7 +29,7 @@ function Login({onSubmit}) {
     <main className="content">
       <section className="auth">
         <form className={`form form_type_signin form_theme_dark form_with-spacer`} name="signin" noValidate onSubmit={handleLoginSubmit}>
-          <h2 className="form__title form__title_theme_dark">Вход</h2>
+          <h2 className="form__title form__title_theme_dark">Входl</h2>
           <fieldset className="form__fieldset">
             <input id="signin-form__email" className="signin-form__email form__input form__input_theme_black"
                    type="text" name="email"

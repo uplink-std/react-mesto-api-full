@@ -2,10 +2,9 @@ import {isDefined} from "./predicates";
 
 class Api {
 
-    constructor({baseUrl, token}) {
+    constructor({baseUrl}) {
         this._baseUrl = baseUrl;
         this._headers = {
-            "authorization": token,
             "Content-Type": "application/json; charset=utf-8"
         };
     }
@@ -115,8 +114,7 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: "https://mesto.nomoreparties.co/v1/cohort-39",
-    token: "9198c67a-8234-4586-80bf-edb62ce0913e"
+    baseUrl: "https://mesto.nomorepartiesxyz.ru/api"
 });
 
 export { api };

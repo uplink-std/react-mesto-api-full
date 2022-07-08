@@ -1,5 +1,3 @@
-const TOKEN_STORE_KEY = "token";
-
 const httpVerbs = {
     post: "POST",
     get: "GET",
@@ -17,7 +15,6 @@ class AuthApi {
 
     constructor({baseUrl}) {
         this._baseUrl = baseUrl;
-        this._token = this._loadToken();
     }
 
     signup({ email, password}) {
@@ -59,18 +56,10 @@ class AuthApi {
                   return Promise.reject("пользователь с email не найден");
               }
               return Promise.reject(`Ошибка: код=${response.status} текст=${response.statusText}`);
-          })
-          .then((jsonResponse) => {
-              this._token = jsonResponse.token;
-              this._saveToken();
-              return Promise.resolve(this._token);
           });
     }
 
     inspectToken() {
-        if (!this._token) {
-            return Promise.reject("Токен отсутствует");
-        }
 
         const request = {
             method: httpVerbs.get,
@@ -82,8 +71,6 @@ class AuthApi {
               if (response.ok) {
                   return response.json();
               }
-              this._token = null;
-              this._saveToken();
 
               if (response.status === 400) {
                   return Promise.reject("Токен не передан или передан не в том формате");
@@ -96,9 +83,17 @@ class AuthApi {
     }
 
     signout() {
-      this._token = null;
-      this._saveToken();
-      return Promise.resolve(null);
+      const request = {
+        method: httpVerbs.post,
+        headers: this._setAuthHeaders(headers)
+      }
+
+      return fetch(this._makeResourceUrl("signout"), request)
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+        });
     }
 
     _makeResourceUrl(resource) {
@@ -110,14 +105,6 @@ class AuthApi {
             ...headers,
             "Authorization": `Bearer ${this._token}`
         };
-    }
-
-    _loadToken() {
-        return localStorage.getItem(TOKEN_STORE_KEY);
-    }
-
-    _saveToken() {
-        return localStorage.setItem(TOKEN_STORE_KEY, this._token);
     }
 }
 
