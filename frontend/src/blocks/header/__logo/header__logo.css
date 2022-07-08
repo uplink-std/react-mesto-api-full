@@ -1,0 +1,15 @@
+.header__logo {
+  display: block;
+  object-fit: contain;
+  width: min(142px, 16vw);
+  max-height: 33px;
+  transition: all ease .5s;
+}
+
+@media all and (max-width: 880px) {
+  .header__logo {
+    width: max(104px, 16vw);
+    max-height: 24px;
+    margin-left: 27px;
+  }
+}

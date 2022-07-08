@@ -1,0 +1,27 @@
+.profile__info {
+  display: grid;
+  align-items: baseline;
+  grid-template-columns: max-content 1fr;
+  grid-template-areas:  "name edit-btn"
+                        "occupation occupation";
+  min-width: max( calc(100% - 120px - 30px - 30px - 150px), 340px);
+  margin: 0 30px 26px 0;
+  transition: all ease .5s;
+}
+
+@media all and (max-width: 880px) {
+  .profile__info {
+    max-width: calc(100% - 120px - 30px - 30px);
+    min-width: max-content;
+  }
+}
+
+@media all and (max-width: 620px) {
+  .profile__info {
+    grid-template-areas:  ". name edit-btn"
+                          ". occupation .";
+    grid-template-columns: 1fr max-content 1fr;
+    width: 100%;
+    margin: 0;
+  }
+}

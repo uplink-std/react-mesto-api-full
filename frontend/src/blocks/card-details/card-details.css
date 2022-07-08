@@ -1,0 +1,8 @@
+.card-details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  max-height: calc( 75vh + 25px );
+  max-width: 75vw;
+  overflow: hidden;
+}
