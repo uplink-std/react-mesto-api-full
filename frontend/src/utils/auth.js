@@ -109,7 +109,7 @@ class AuthApi {
 }
 
 const authApi = new AuthApi({
-    baseUrl: "https://auth.nomoreparties.co"
+    baseUrl: "https://mesto.nomorepartiesxyz.ru/api"
 });
 
 export { authApi };
