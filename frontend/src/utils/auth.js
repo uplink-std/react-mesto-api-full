@@ -21,6 +21,7 @@ class AuthApi {
         const request = {
             method: httpVerbs.post,
             headers: {...headers},
+            credentials: 'include',
             body: JSON.stringify({ email, password })
         }
 
@@ -40,6 +41,7 @@ class AuthApi {
     signin({ email, password}) {
         const request = {
             method: httpVerbs.post,
+            credentials: 'include',
             headers: {...headers},
             body: JSON.stringify({ email, password })
         };
@@ -63,6 +65,7 @@ class AuthApi {
 
         const request = {
             method: httpVerbs.get,
+            credentials: 'include',
             headers: this._setAuthHeaders(headers)
         }
 
@@ -85,7 +88,8 @@ class AuthApi {
     signout() {
       const request = {
         method: httpVerbs.post,
-        headers: this._setAuthHeaders(headers)
+        headers: this._setAuthHeaders(headers),
+        credentials: 'include',
       }
 
       return fetch(this._makeResourceUrl("signout"), request)
@@ -103,13 +107,12 @@ class AuthApi {
     _setAuthHeaders(headers) {
         return {
             ...headers,
-            "Authorization": `Bearer ${this._token}`
         };
     }
 }
 
 const authApi = new AuthApi({
-    baseUrl: "https://mesto.nomorepartiesxyz.ru/api"
+    baseUrl: "http://localhost:8080"
 });
 
 export { authApi };

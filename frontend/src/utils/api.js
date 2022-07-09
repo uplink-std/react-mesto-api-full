@@ -90,7 +90,11 @@ class Api {
     }
 
     _callApi(method, resource, data) {
-        const request = { method: method, headers: this._headers }
+        const request = {
+            method: method,
+            credentials: 'include',
+            headers: this._headers,
+        }
 
         if (isDefined(data)) {
             request.body = JSON.stringify(data);
@@ -114,7 +118,8 @@ class Api {
 }
 
 const api = new Api({
-    baseUrl: "https://mesto.nomorepartiesxyz.ru/api"
+    // baseUrl: "https://mesto.nomorepartiesxyz.ru/api"
+    baseUrl: "http://localhost:8080"
 });
 
 export { api };
