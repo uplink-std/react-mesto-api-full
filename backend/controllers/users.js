@@ -96,7 +96,7 @@ const login = (req, res, next) => {
 
 const logout = (req, res) => {
   res.clearCookie('jwt');
-  return res.status(httpStatus.ok).send({ message: "Выполнен выход пользователя" });
+  return res.status(httpStatus.ok).send({ message: 'Выполнен выход пользователя' });
 };
 
 module.exports = {
