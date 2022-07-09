@@ -94,6 +94,11 @@ const login = (req, res, next) => {
     .catch((error) => handleError(error, res, next));
 };
 
+const logout = (req, res) => {
+  res.clearCookie('jwt');
+  return res.status(httpStatus.ok).send({ message: "Выполнен выход пользователя" });
+};
+
 module.exports = {
   getUsers,
   getUserById,
@@ -101,5 +106,6 @@ module.exports = {
   updateUser,
   updateAvatar,
   login,
+  logout,
   getLoggedUser,
 };

@@ -5,11 +5,11 @@ import {CurrentUserContext} from "../contexts/CurrentUserContext";
 function Card({ card, onDelete, onCardLike, onCardClick }) {
 
   const currentUser = useContext(CurrentUserContext);
-  const isOwner = card.owner._id === currentUser._id;
+  const isOwner = card.owner === currentUser._id;
 
   let hasUserLike = false;
   if (isDefined(card.likes)) {
-    hasUserLike = card.likes.some(owner => owner._id === currentUser._id);
+    hasUserLike = card.likes.some(owner => owner === currentUser._id);
   }
 
   const likeCount = hasItems(card.likes) ? card.likes.length : 0

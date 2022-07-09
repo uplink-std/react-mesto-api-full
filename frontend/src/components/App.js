@@ -135,7 +135,7 @@ function App() {
     let email = '';
     authApi.inspectToken()
       .then((userIdentity) => {
-        email = userIdentity.data.email;
+        email = userIdentity.email;
         return api.getUserInfo();
       })
       .then((user) => {
