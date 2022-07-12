@@ -152,6 +152,10 @@ function App() {
   }
 
   const handleRegister = (email, password) => {
+    if (tooltipSuccess) {
+      handleTooltipClose();
+      return;
+    }
     authApi.signup({email, password})
       .then((userInfo) => {
         setRegisterEmail(email);

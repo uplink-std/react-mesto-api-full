@@ -24,6 +24,7 @@ const {
 } = require('./utils/joi-validation');
 const { handleError } = require('./utils/errors');
 const { errorMiddleware } = require('./middlewares/error');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000, MONGODB_URL = 'mongodb://localhost:27017/mestodb', CORS_CONFIG_ORIGIN = false } = process.env;
 
@@ -34,6 +35,7 @@ const limiter = rateLimit({
   max: 200,
 });
 
+app.use(requestLogger);
 app.use(limiter);
 app.use(helmet());
 app.use(cors({
@@ -76,8 +78,9 @@ app.post(
 app.use('/users', usersRoute);
 app.use('/cards', cardsRoute);
 
-app.use(errors());
 app.use((req, res, next) => handleError(new NotFoundError('Ресурс не найден'), res, next));
+app.use(errorLogger);
+app.use(errors());
 
 app.use(errorMiddleware);
 
