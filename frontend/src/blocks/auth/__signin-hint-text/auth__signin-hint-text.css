@@ -1,0 +1,10 @@
+.auth__signin-hint-text {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21; /* 17px */
+  text-align: center;
+  color: #FFFFFF;
+  text-decoration: none;
+}

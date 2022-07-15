@@ -1,0 +1,18 @@
+.idea/
+*.iml
+node_modules/
+build/
+/package-lock.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.DS_Store
+.vscode
+/debug/

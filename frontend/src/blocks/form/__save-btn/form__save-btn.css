@@ -1,0 +1,28 @@
+.form__save-btn {
+  width: 100%;
+  min-height: 49px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.22; /* 22px */
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  border-radius: 2px;
+  max-width: 358px;
+}
+
+.form__save-btn:hover {
+  opacity: .85;
+  cursor: pointer;
+}
+
+@media all and (max-width: 620px) {
+  .form__save-btn {
+    font-size: 14px;
+    line-height: 1.21; /* 17px */
+  }
+}
