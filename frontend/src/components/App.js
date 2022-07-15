@@ -125,24 +125,16 @@ function App() {
   const handleAddPlace = (name, link) => {
     api.createCard({name, link})
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([...cards, newCard]);
         closeAllPopups();
       })
       .catch(error => console.log(error));
   };
 
   const updateCurrentUser = () => {
-    let email = '';
-    authApi.inspectToken()
-      .then((userIdentity) => {
-        email = userIdentity.email;
-        return api.getUserInfo();
-      })
+    api.getUserInfo()
       .then((user) => {
-        setCurrentUser({email, ...user});
-        if (atSignPage) {
-          history.push('/');
-        }
+        setCurrentUser({...user});
         return Promise.resolve();
       })
       .catch(error => {
@@ -197,6 +189,12 @@ function App() {
   const atSignPage = atSignInPage || atSignUpPage;
 
   const isLoggedIn = !!currentUser;
+
+  useEffect(() => {
+    if (atSignPage && isLoggedIn) {
+      history.push('/');
+    }
+  }, [atSignPage, isLoggedIn]);
 
   useEffect(updateCurrentUser, []);
 
