@@ -88,7 +88,7 @@ class AuthApi {
 }
 
 const authApi = new AuthApi({
-  baseUrl: "http://localhost:8080"
+  baseUrl: "/api"
 });
 
 export {authApi};

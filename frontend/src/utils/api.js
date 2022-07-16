@@ -118,8 +118,7 @@ class Api {
 }
 
 const api = new Api({
-    // baseUrl: "https://mesto.nomorepartiesxyz.ru/api"
-    baseUrl: "http://localhost:8080"
+    baseUrl: "/api"
 });
 
 export { api };

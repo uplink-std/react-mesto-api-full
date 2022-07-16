@@ -1,18 +1,4 @@
-[![Tests](https://github.com/uplink-std/express-mesto-gha/actions/workflows/tests-13-sprint.yml/badge.svg)](https://github.com/uplink-std/express-mesto-gha/actions/workflows/tests-13-sprint.yml) [![Tests](https://github.com/uplink-std/express-mesto-gha/actions/workflows/tests-14-sprint.yml/badge.svg)](https://github.com/uplink-std/express-mesto-gha/actions/workflows/tests-14-sprint.yml)
-# Проект Mesto фронтенд + бэкенд
-
-
-
-## Настройка бейджей статуса тестов
-Перед началом работы над проектом рекомендуется исправить бейджи, отражающие статус прохождения тестов.
-Для этого замените разметку бейджей на следующий фрагмент, подставив вместо `${имя_пользователя}` и `${имя_репозитория}` соответствующие значения.
-
-```
-[![Tests for sprint 13](https://github.com/${имя_пользователя}/${имя репозитория}/actions/workflows/tests-13-sprint.yml/badge.svg)](https://github.com/${имя_пользователя}/${имя репозитория}/actions/workflows/tests-13-sprint.yml) 
-
-[![Tests for sprint 14](https://github.com/${имя_пользователя}/${имя репозитория}/actions/workflows/tests-14-sprint.yml/badge.svg)](https://github.com/${имя_пользователя}/${имя репозитория}/actions/workflows/tests-14-sprint.yml)
-```
-
+# Проект Mesto: бэкенд
 
 ## Директории
 
@@ -60,7 +46,8 @@ services:
 
 Выполняется установкой переменных окружения:
 
-| Переменная окружения | Назначение         | Значение по умолчанию              | Пример                                                             |
-|----------------------|--------------------|------------------------------------|--------------------------------------------------------------------|
-| PORT                 | порт сервера       | 3000                               | 8080                                                               |
-| MONGODB_URL          | строка подключения | mongodb://localhost:27017/mestodb  | mongodb://admin:adminpass@127.0.0.1:27017/mestodb?authSource=admin |
+| Переменная окружения | Назначение         | Значение по умолчанию             | Пример                                                             |
+|----------------------|--------------------|-----------------------------------|--------------------------------------------------------------------|
+| PORT                 | порт сервера       | 3000                              | 8080                                                               |
+| MONGODB_URL          | строка подключения | mongodb://localhost:27017/mestodb | mongodb://admin:adminpass@127.0.0.1:27017/mestodb?authSource=admin |
+| CORS_CONFIG_ORIGIN   | настройка cors     | false                             | http://localhost:3000                                              |
