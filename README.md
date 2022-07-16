@@ -7,3 +7,5 @@
 
 ## Демонстрация
 [https://mesto.nomorepartiesxyz.ru](https://mesto.nomorepartiesxyz.ru/)
+
+ip 51.250.100.4
